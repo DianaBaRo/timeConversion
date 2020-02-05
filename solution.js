@@ -26,10 +26,16 @@ function readLine() {
  * Complete the timeConversion function below.
  */
 function timeConversion(s) {
-    let time = parseInt(s.substring(0, 3));
-    let newTime = time + 12;
+    let hour = parseInt(s.substring(0, 3));
+    if (hour > 12) {
+        hour = hour - 12;
+    } else if (hour === 12){
+        hour = '00';
+    } else {
+        hour = hour + 12;
+    };
     
-    let result = (newTime + s.substring(2)).slice(0,-2);
+    let result = (hour + s.substring(2)).slice(0,-2);
 
     return result;
 }
